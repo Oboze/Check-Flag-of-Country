@@ -1,6 +1,6 @@
 let userMessage=document.getElementById('paragraph');
 
-		const flagKenya=()=>{
+		/*const flagKenya=()=>{
 			userMessage.textContent="This flag belongs to Kenya";
 		}
 
@@ -27,7 +27,28 @@ let userMessage=document.getElementById('paragraph');
 		triggerAustralia.addEventListener('click',flagAustralia,false);
 
 		let triggerBody=document.querySelector("body");
-		triggerBody.addEventListener('mouseover',()=>{hoverBody()},false);
+		triggerBody.addEventListener('mouseover',()=>{hoverBody()},false);*/
 
-		
+
+		function getTarget(e){
+			return e.target;
+		}
+
+		function getFlag(e){
+			let target=getTarget(e);
+
+			if (target===document.getElementById('kenya')){
+				userMessage.innerHTML="The flag belongs to Kenya";
+			}else if(target===document.getElementById('china')){
+				userMessage.innerHTML="The flag belongs to China";
+			}else if (target===document.getElementById('australia')){
+				userMessage.innerHTML="The flag belongs to Australia";
+			}else{
+				userMessage.innerHTML="Click one of the flags";
+			}
+		}// end of function 
+
+
+		let flagSelector=document.querySelector('div');
+		flagSelector.addEventListener('click',()=>{getFlag(event);}, false);
 		
